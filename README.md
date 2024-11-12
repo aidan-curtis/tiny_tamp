@@ -4,12 +4,25 @@ A minimal task and motion planning package for quick prototyping
 
 ## Install
 
+Create a virtual environment:
+
+`conda create --name tiny_tamp python=3.8`
+
+Build:
+
 `python -m pip install -e .`
+
+Install optional dependencies via:
+
+`pip install '.[dev]'`
 
 ## Use
 
 `python tamp.py --vis-sim`
 
+# Pre-commit
+
+`pre-commit run --all-files`
 
 ## Debugging
 

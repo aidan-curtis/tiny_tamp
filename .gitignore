@@ -144,3 +144,9 @@ generated_videos
 logs
 
 sbi-logs
+
+*.pyc
+**/*.pyc
+.idea
+.DS_Store
+**/.DS_Store
