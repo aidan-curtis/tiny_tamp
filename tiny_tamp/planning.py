@@ -84,7 +84,7 @@ def solve_ik(sim: SimulatorInstance, link, target_pose, start_q=None, obstacles=
             initialization_sample = start_q
             randomize_seed = True
         else:
-            initialization_sample = [random.uniform(r[0], r[1]) for r in ranges]
+            initialization_sample = [random.uniform(r.lower, r.upper) for r in ranges]
 
         pbu.set_joint_positions(
             sim.robot, arm_joints, initialization_sample, client=sim.client
@@ -106,7 +106,7 @@ def solve_ik(sim: SimulatorInstance, link, target_pose, start_q=None, obstacles=
             if j in arm_joints
         ]
 
-        lower, upper = list(zip(*ranges))
+        lower, upper = list(zip(*[(r.lower, r.upper) for r in ranges]))
 
         assert len(arm_joints) == len(conf)
         pbu.set_joint_positions(sim.robot, arm_joints, conf, client=sim.client)
